@@ -1,5 +1,1 @@
-# bharat.dev
-# project.dev
-# project.dev
-# project.dev
-# project.dev
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).

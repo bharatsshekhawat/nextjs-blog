@@ -1,58 +1,48 @@
-import { Fragment } from "react";
+import { getSortedPostsData } from "../lib/posts";
+
+import Layout from "../components/layout";
 import Head from "next/head";
-import { MongoClient } from "mongodb";
+import utilStyles from "../styles/utils.module.css";
 
-import MeetupList from "../components/meetups/MeetupList";
-
-function HomePage(props) {
-  return (
-    <Fragment>
-      <Head>
-        <title>Meetups</title>
-        <meta
-          name="description"
-          content="Browse a huge list of highly active React meetups!"
-        />
-      </Head>
-      <MeetupList meetups={props.meetups} />;
-    </Fragment>
-  );
-}
+import Link from "next/link";
+import Date from "../components/date";
 
 export async function getStaticProps() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://new-user01:12Abhi12@cluster0.ed2in39.mongodb.net/meetups?retryWrites=true&w=majority"
-  );
-  const db = client.db();
-
-  const meetupsCollection = db.collection("meetups");
-
-  const meetups = await meetupsCollection.find().toArray();
-
-  client.close();
-
+  const allPostsData = getSortedPostsData();
   return {
     props: {
-      meetups: meetups.map((meetup) => ({
-        title: meetup.data.title,
-        address: meetup.data.address,
-        image: meetup.data.image,
-        id: meetup._id.toString(),
-      })),
+      allPostsData,
     },
-    revalidate: 1,
   };
 }
 
-export default HomePage;
-
-// export async function getServerSideProps(context) {
-//   const req =  context.req;
-//   const res = context.res;
-
-//   return {
-//     props: {
-//       meetups: DUMMY_MEETUPS
-//     }
-//   };
-// }
+export default function Home({ allPostsData }) {
+  return (
+    <Layout home>
+      <Head>
+        <title>(SiteTitle)</title>
+      </Head>
+      <section className={utilStyles.headingMd}>
+        <p>Hello I am Bharat Singh. I am a frontend Reactjs Devloper </p>
+        <p>
+          (This is a sample website - you’ll be building a site like this on{" "}
+          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
+        </p>
+      </section>
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={utilStyles.listItem} key={id}>
+              <Link href={`/posts/${id}`}>{title}</Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={date} />
+              </small>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </Layout>
+  );
+}

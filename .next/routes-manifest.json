@@ -45,15 +45,15 @@
   "dataRoutes": [
     {
       "page": "/",
-      "dataRouteRegex": "^/_next/data/\\-1pXiLDXk_yGx1d_X5ubQ/index\\.json$"
+      "dataRouteRegex": "^/_next/data/o5Pw84WrFqZr6DPdLtgec/index\\.json$"
     },
     {
       "page": "/posts/[id]",
       "routeKeys": {
         "nxtPid": "nxtPid"
       },
-      "dataRouteRegex": "^/_next/data/\\-1pXiLDXk_yGx1d_X5ubQ/posts/([^/]+?)\\.json$",
-      "namedDataRouteRegex": "^/_next/data/\\-1pXiLDXk_yGx1d_X5ubQ/posts/(?<nxtPid>[^/]+?)\\.json$"
+      "dataRouteRegex": "^/_next/data/o5Pw84WrFqZr6DPdLtgec/posts/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/o5Pw84WrFqZr6DPdLtgec/posts/(?<nxtPid>[^/]+?)\\.json$"
     }
   ],
   "rsc": {

@@ -1,23 +1,10 @@
 {
   "version": 4,
   "routes": {
-    "/": {
-      "initialRevalidateSeconds": false,
-      "srcRoute": null,
-      "dataRoute": "/_next/data/-1pXiLDXk_yGx1d_X5ubQ/index.json",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/posts/pre-rendering": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/posts/[id]",
-      "dataRoute": "/_next/data/-1pXiLDXk_yGx1d_X5ubQ/posts/pre-rendering.json",
+      "dataRoute": "/_next/data/o5Pw84WrFqZr6DPdLtgec/posts/pre-rendering.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -30,7 +17,20 @@
     "/posts/ssg-ssr": {
       "initialRevalidateSeconds": false,
       "srcRoute": "/posts/[id]",
-      "dataRoute": "/_next/data/-1pXiLDXk_yGx1d_X5ubQ/posts/ssg-ssr.json",
+      "dataRoute": "/_next/data/o5Pw84WrFqZr6DPdLtgec/posts/ssg-ssr.json",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
+    },
+    "/": {
+      "initialRevalidateSeconds": false,
+      "srcRoute": null,
+      "dataRoute": "/_next/data/o5Pw84WrFqZr6DPdLtgec/index.json",
       "allowHeader": [
         "host",
         "x-matched-path",
@@ -44,9 +44,9 @@
   "dynamicRoutes": {
     "/posts/[id]": {
       "routeRegex": "^/posts/([^/]+?)(?:/)?$",
-      "dataRoute": "/_next/data/-1pXiLDXk_yGx1d_X5ubQ/posts/[id].json",
+      "dataRoute": "/_next/data/o5Pw84WrFqZr6DPdLtgec/posts/[id].json",
       "fallback": false,
-      "dataRouteRegex": "^/_next/data/\\-1pXiLDXk_yGx1d_X5ubQ/posts/([^/]+?)\\.json$",
+      "dataRouteRegex": "^/_next/data/o5Pw84WrFqZr6DPdLtgec/posts/([^/]+?)\\.json$",
       "allowHeader": [
         "host",
         "x-matched-path",
